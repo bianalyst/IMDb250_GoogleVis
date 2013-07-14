@@ -5,7 +5,7 @@ data <- read.csv("./data/Top250 (unique).csv", sep="," , header=TRUE, skip=0, st
 
 ### Rename Columns
 nn<-names(data)
-nn[1:16] <- c("position", "const","created", "modified", "description"
+nn[1:16] <- c("Pos", "const","created", "modified", "description"
               ,"Title","Title.type","Directors","YouRated","IMDbRating"
               ,"Runtime","Year","Genres","NumVotes", "ReleaseDate", "URL")
 names(data) <- nn
@@ -40,7 +40,7 @@ data[Danny_Boyle,]$Directors      <-              "Danny Boyle"
 
 
 ### add Number of Movies per Director in Top 250
-freq  <- as.data.frame(table(data$Directors))
+freq  <- as.data.frame(table(data$Directors)) 
 data  <- data.frame <- merge(data, freq, by.x = "Directors", by.y = "Var1")
 Total <- data$Freq * data$IMDbRating
 data <- cbind(data,Total)
@@ -79,12 +79,16 @@ M = gvisMotionChart(data=result
                     , chartid="IMDB_Top250"
                     )
 plot(M)
-T <- gvisTable(result[,c(1:2,4)],options=list(
+T <- gvisTable(result[,c(3,2,4,1)],options=list(
                                   # width=600, height=300, fontSize=8, page='disable'
                                               ))
 TM<- gvisMerge(T, M, horizontal=TRUE,
-                 tableOptions="bgcolor=\"#CCCCCC\" cellspacing=10")
+                 tableOptions="bgcolor=\"#CCCCCC\" cellspacing=10"
+               ,chartid="IMDB_Top250")
 plot(TM)
+
+p <- Reduce(gvisMerge, list(TM))
+plot(p)
 
 cat(M$html$chart, file="tmp.html")
 
