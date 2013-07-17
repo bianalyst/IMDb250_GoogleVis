@@ -37,6 +37,9 @@ FFCoppola       <- data$Directors ==              "Francis Coppola"
 data[FFCoppola,]$Directors        <-              "Francis Ford Coppola"
 Danny_Boyle     <- substr(data$Directors,1,11) == "Danny Boyle"
 data[Danny_Boyle,]$Directors      <-              "Danny Boyle"
+Danny_Boyle     <- substr(data$Directors,1,22) == "The Wachowski Brothers"
+data[Danny_Boyle,]$Directors      <-              "The Wachowski Brothers"
+
 
 
 ### add Number of Movies per Director in Top 250
@@ -79,16 +82,17 @@ M = gvisMotionChart(data=result
                     , chartid="IMDB_Top250"
                     )
 plot(M)
-T <- gvisTable(result[,c(3,2,4,1)],options=list(
-                                  # width=600, height=300, fontSize=8, page='disable'
+T <- gvisTable(result[,c(3,2,4,1)],options=list(sort='enable'))
+# options=list(   width=600, height=300, fontSize=8, page='disable'
                                               ))
 TM<- gvisMerge(T, M, horizontal=TRUE,
                  tableOptions="bgcolor=\"#CCCCCC\" cellspacing=10"
                ,chartid="IMDB_Top250")
 plot(TM)
 
-p <- Reduce(gvisMerge, list(TM))
-plot(p)
+## p <- Reduce(gvisMerge, list(TM))
+##plot(p)
 
-cat(M$html$chart, file="tmp.html")
+#cat(MT$html$chart, file="IMDB250.html")
+print(TM, file="IMDB2505.html")
 
