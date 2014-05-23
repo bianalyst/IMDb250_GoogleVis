@@ -9,9 +9,9 @@ Snapshot of the IMDb Top 250 list as of Dec 13, 2012 [2]
 Clean-up steps for director names and release dates are included in googlevis.R
 
 ### Visualization 
-The Google Visualization of Film Directors' Contribution (in %) to the IMDb Top250 (Dec 31, 2012) is published to Visualizing.org [3]
+The Google Visualization of Film Directors' Contribution (in %) to the IMDb Top250 (Dec 31, 2012) is published to [Visualizing.org](http://www.visualizing.org/full-screen/58439) [3]
 
-![Visualizing.org](http://www.visualizing.org/sites/default/files/imagecache/thumbnail_medium/images/2013-07-15_imdb250_3.png)
+![(http://www.visualizing.org/full-screen/58439)](http://www.visualizing.org/sites/default/files/imagecache/thumbnail_medium/images/2013-07-15_imdb250_3.png)
 
 #### References:
 [1] IMDb Top 250, URL: http://www.imdb.com/chart/top?ref_=nv_ch_250_4  
